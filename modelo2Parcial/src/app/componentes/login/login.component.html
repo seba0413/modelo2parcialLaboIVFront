@@ -1,0 +1,17 @@
+<form>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="entidad.campo1" name="email" aria-describedby="emailHelp" placeholder="Ingresar email">
+  </div>
+  <div class="form-group">
+    <label for="clave">Clave</label>
+    <input type="password" class="form-control" [(ngModel)]="entidad.campo2" name="clave" placeholder="Clave">
+  </div>
+  <div class="form-group form-check">
+    <label for="tipos">Tipo de usuario</label>
+    <select id="tipos" class="form-control col-lg-10" [(ngModel)]="entidad.campo3" name="tipo">
+      <option [value]="item" *ngFor="let item of arrayCampo3">{{item}}</option>
+    </select>
+  </div>
+  <button type="button" class="btn btn-primary" (click) = "altaEntidad()">Dar de alta</button>
+</form>
