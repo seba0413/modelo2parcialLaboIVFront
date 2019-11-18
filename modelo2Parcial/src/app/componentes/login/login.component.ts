@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Entidad } from '../../clases/entidad';
 import { Entidad1Service } from '../../servicios/entidad1/entidad1.service';
+import { Router } from '@angular/router';
+import { JwtHelperService } from "@auth0/angular-jwt";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -10,22 +13,54 @@ import { Entidad1Service } from '../../servicios/entidad1/entidad1.service';
 })
 export class LoginComponent implements OnInit {
 
-  entidad: Entidad; 
+  entidadAlta: Entidad; 
+  entidadLogin: Entidad;
   arrayCampo3: Array<string>;
+  jwtDecoder = new JwtHelperService();
 
-  constructor(private entidad1Service: Entidad1Service) { 
-    this.entidad = new Entidad();
+  constructor(private entidad1Service: Entidad1Service, private router: Router) { 
+    this.entidadAlta = new Entidad();
+    this.entidadLogin = new Entidad(); 
     this.arrayCampo3 = new Array<string>(); 
     this.arrayCampo3.push('alumno');
     this.arrayCampo3.push('profesor');
     this.arrayCampo3.push('administrador');
   }
 
-  altaEntidad(){debugger
-    this.entidad1Service.AltaEntidad(this.entidad).subscribe();
+  loginEntidad(){
+    this.entidad1Service.LoginEntidad(this.entidadLogin).subscribe(respuesta => {
+      if(respuesta.Estado == "Error")
+      {
+        this.alertaUsuarioInvalido(respuesta.Mensaje);
+      }
+      else
+      {
+        localStorage.setItem('Token', respuesta.Token);
+        var decodeToken = this.jwtDecoder.decodeToken(respuesta.Token);
+        if(decodeToken.data.campo3 == 'administrador')
+          this.router.navigate(['/admin']);
+        if(decodeToken.data.campo3 == 'profesor')
+          this.router.navigate(['/profesor']);
+        if(decodeToken.data.campo3 == 'alumno')
+          this.router.navigate(['/alumno']);
+      }
+    });
   }
 
+  altaEntidad(){
+    this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe();
+  }
 
+  alertaUsuarioInvalido(mensaje: string) {
+    Swal.fire({ 
+      title: 'Alerta',
+      text: mensaje,
+      type: 'error',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ok'
+    })
+  }
 
   ngOnInit() {
   }

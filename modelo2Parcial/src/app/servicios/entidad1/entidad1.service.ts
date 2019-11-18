@@ -10,6 +10,14 @@ export class Entidad1Service {
 
   constructor(private HttpService: HttpService) { }
 
+  LoginEntidad(entidad: Entidad) {
+    return this.HttpService.httpPost0('entidad/login/', entidad);
+  }
+
+  LoggedIn() {
+    return !!localStorage.getItem('Token');
+  }
+
   AltaEntidad(entidad: Entidad) {
     return this.HttpService.httpPost0('entidad/', entidad);
   }
