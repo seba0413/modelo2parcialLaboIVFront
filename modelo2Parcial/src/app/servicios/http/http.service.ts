@@ -20,10 +20,15 @@ export class HttpService {
 
   constructor(private http: HttpClient) {   }
 
-  public httpPost0( metodo: string, objeto: any): Observable<any> {debugger
+  public httpPost0( metodo: string, objeto: any): Observable<any> {
     return this.http.post(this.url + metodo, JSON.stringify(objeto), this.httpOptions)
     .pipe(respuesta => respuesta)
   }
+
+  public httpPostLoginRegistro( metodo: string, objeto: any): Observable<any> {
+    return this.http.post(this.url + metodo, JSON.stringify(objeto))
+    .pipe(respuesta => respuesta)
+  }  
 
   public httpGet0( metodo: string): Observable<any> {
     return this.http.get(this.url + metodo)

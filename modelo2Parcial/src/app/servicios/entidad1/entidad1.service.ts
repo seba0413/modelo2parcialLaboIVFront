@@ -11,7 +11,7 @@ export class Entidad1Service {
   constructor(private HttpService: HttpService) { }
 
   LoginEntidad(entidad: Entidad) {
-    return this.HttpService.httpPost0('entidad/login/', entidad);
+    return this.HttpService.httpPostLoginRegistro('entidad/login/', entidad);
   }
 
   LoggedIn() {
@@ -19,7 +19,7 @@ export class Entidad1Service {
   }
 
   AltaEntidad(entidad: Entidad) {
-    return this.HttpService.httpPost0('entidad/', entidad);
+    return this.HttpService.httpPostLoginRegistro('entidad/', entidad);
   }
 
   ObtenerEntidades(param: string) {
