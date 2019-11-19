@@ -1,5 +1,8 @@
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <label class="btn btn-secondary active">
+    <div class="col-4">
+        <h3>Filtrar por: </h3>
+    </div>
+    <label class="btn btn-secondary">
         <input type="radio" name="options" id="option1" autocomplete="off" (click)="filtrarEntidades('todos')"> Todos
     </label>
     <label class="btn btn-secondary">
@@ -13,7 +16,7 @@
     </label>
 </div>
 
-<table class="table">
+<table class="table" style="margin-top: 2%;">
     <thead>
         <tr>
             <th scope="col">Id</th>

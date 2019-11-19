@@ -35,6 +35,7 @@ export class AltaEntidad2Component implements OnInit {
         showConfirmButton: false,
         timer: 1500
         });
+        this.entidad2 = new Entidad2();
       })
     }
   }    

@@ -12,4 +12,8 @@ export class Entidad2Service {
   altaEntidad2(entidad2: Entidad2){
     return this.HttpService.httpPost0('entidad2/alta/', entidad2);
   }
+
+  ObtenerEntidades2(){
+    return this.HttpService.httpGet0('entidades2/');
+  }
 }
