@@ -1,0 +1,31 @@
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" (click)="filtrarEntidades('todos')"> Todos
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option2" autocomplete="off" (click)="filtrarEntidades('administrador')"> Administrador
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option3" autocomplete="off" (click)="filtrarEntidades('profesor')"> Profesor
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="option4" autocomplete="off" (click)="filtrarEntidades('alumno')"> Alumno
+    </label>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Tipo Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listadoEntidades">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.campo1}}</td>
+            <td>{{item.campo3}}</td>
+        </tr>
+    </tbody>
+</table>

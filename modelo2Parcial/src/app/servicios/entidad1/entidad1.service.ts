@@ -21,4 +21,8 @@ export class Entidad1Service {
   AltaEntidad(entidad: Entidad) {
     return this.HttpService.httpPost0('entidad/', entidad);
   }
+
+  ObtenerEntidades(param: string) {
+    return this.HttpService.httpGet0('entidades/' + param)
+  }
 }

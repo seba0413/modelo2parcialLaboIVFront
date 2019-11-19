@@ -9,16 +9,18 @@ import { HttpService } from './servicios/http/http.service';
 import { Entidad1Service } from './servicios/entidad1/entidad1.service';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './componentes/admin/admin.component';
-import { ProfesorComponent } from './componentes/profesor/profesor.component';
-import { AlumnoComponent } from './componentes/alumno/alumno.component';
+import { AltaEntidad2Component } from './componentes/alta-entidad2/alta-entidad2.component';
+import { ListadoEntidad2Component } from './componentes/listado-entidad2/listado-entidad2.component';
+import { ListadoEntidad1Component } from './componentes/listado-entidad1/listado-entidad1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminComponent,
-    ProfesorComponent,
-    AlumnoComponent
+    AltaEntidad2Component,
+    ListadoEntidad2Component,
+    ListadoEntidad1Component
   ],
   imports: [
     BrowserModule,
