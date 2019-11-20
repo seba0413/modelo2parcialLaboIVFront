@@ -21,6 +21,7 @@ import { ListadoEntidad1Item3Component } from './componentes/listado-entidad1-it
 import { ResaltarComponent } from './directivas/resaltar/resaltar.component';
 import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indicar-propiedad.component';
 import { MailComponent } from './componentes/mail/mail.component';
+import { SortbyPipe } from './pipes/sortby.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MailComponent } from './componentes/mail/mail.component';
     ResaltarComponent,
     IndicarPropiedadComponent,
     MailComponent,
+    SortbyPipe,
   ],
   imports: [
     BrowserModule,
