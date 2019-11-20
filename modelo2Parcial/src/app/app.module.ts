@@ -20,6 +20,7 @@ import { ListadoEntidad2Item3Component } from './componentes/listado-entidad2-it
 import { ListadoEntidad1Item3Component } from './componentes/listado-entidad1-item3/listado-entidad1-item3.component';
 import { ResaltarComponent } from './directivas/resaltar/resaltar.component';
 import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indicar-propiedad.component';
+import { MailComponent } from './componentes/mail/mail.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indica
     ListadoEntidad1Item3Component,
     ResaltarComponent,
     IndicarPropiedadComponent,
+    MailComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,8 +37,10 @@ export class LoginComponent implements OnInit {
       {
         localStorage.setItem('Token', respuesta.Token);
         var decodeToken = this.jwtDecoder.decodeToken(respuesta.Token);
+        localStorage.setItem('Mail', decodeToken.data.campo1);
+
         if(decodeToken.data.campo3 == 'administrador')
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/' + decodeToken.data.id]);
         if(decodeToken.data.campo3 == 'profesor')
           this.router.navigate(['/item3/' + decodeToken.data.id]);
         if(decodeToken.data.campo3 == 'alumno'){

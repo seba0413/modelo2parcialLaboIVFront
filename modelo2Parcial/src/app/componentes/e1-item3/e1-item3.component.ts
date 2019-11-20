@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Entidad } from '../../clases/entidad';
 import { Entidad2 } from '../../clases/entidad2';
 import { Entidad1Service } from 'src/app/servicios/entidad1/entidad1.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-e1-item3',
@@ -15,7 +16,24 @@ export class E1Item3Component implements OnInit {
   entidad1Item3: Entidad; 
   listadoEntidad2_Item3: Array<Entidad2>;
 
-  constructor(private rutaActiva: ActivatedRoute, private entidad1Service: Entidad1Service) {}
+  constructor(private rutaActiva: ActivatedRoute, private entidad1Service: Entidad1Service, private router: Router) {}
+
+  cerrarSesion(){
+    Swal.fire({
+      title: 'Cerrar sesion',
+      text: "¿Seguro queres cerrar sesión?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        localStorage.clear();
+        this.router.navigate(['']);
+      }
+    })
+  }
 
   ngOnInit() {
     this.idItem3 = this.rutaActiva.snapshot.params.idItem3;
