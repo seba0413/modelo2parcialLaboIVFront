@@ -1,5 +1,7 @@
 <td scope="row">{{item.campo1}}</td>
 <td>{{item.campo2}}</td>
-<td>{{item.campo3}}</td>
+<!-- <td>{{item.campo3}}</td> -->
 <td>{{item.campo4}}</td>
-<td><button type="button" (click) ="altaEntidad1_2(item.id)">Inscribirse</button></td>
+<td app-indicar-propiedad [campo3] = "item.campo3"></td>
+<td><button type="button" (click) ="altaEntidad1_2(item.id)" id="btnInscripcion">Inscribirse</button></td>
+

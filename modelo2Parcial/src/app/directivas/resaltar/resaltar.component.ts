@@ -21,12 +21,19 @@ export class ResaltarComponent implements OnInit {
     }
   }
 
+  inhabilitarBoton(){
+    if(this.item.campo3 == 0){
+      document.getElementById('btnInscripcion').setAttribute('disabled', 'disabled');
+    }
+  }
+
   altaEntidad1_2(idEntidad2){
     this.inscripcion.emit(idEntidad2);
   }
 
   ngOnInit() {
     this.resaltarItem();
+    this.inhabilitarBoton();
   }
 
 }

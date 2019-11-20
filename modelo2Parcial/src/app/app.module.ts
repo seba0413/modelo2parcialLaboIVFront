@@ -19,6 +19,7 @@ import { E1Item3Component } from './componentes/e1-item3/e1-item3.component';
 import { ListadoEntidad2Item3Component } from './componentes/listado-entidad2-item3/listado-entidad2-item3.component';
 import { ListadoEntidad1Item3Component } from './componentes/listado-entidad1-item3/listado-entidad1-item3.component';
 import { ResaltarComponent } from './directivas/resaltar/resaltar.component';
+import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indicar-propiedad.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ResaltarComponent } from './directivas/resaltar/resaltar.component';
     E1Item3Component,
     ListadoEntidad2Item3Component,
     ListadoEntidad1Item3Component,
-    ResaltarComponent
+    ResaltarComponent,
+    IndicarPropiedadComponent
   ],
   imports: [
     BrowserModule,
