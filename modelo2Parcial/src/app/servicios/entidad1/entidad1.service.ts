@@ -25,4 +25,12 @@ export class Entidad1Service {
   ObtenerEntidades(param: string) {
     return this.HttpService.httpGet0('entidades/' + param)
   }
+
+  ObtenerEntidad(id){
+    return this.HttpService.httpGet0('entidad/' + id);
+  }
+
+  ObtenerEntidades2_Item3(idItem3){
+    return this.HttpService.httpGet0('entidades2/' + idItem3);
+  }
 }

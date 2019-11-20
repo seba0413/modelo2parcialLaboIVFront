@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         if(decodeToken.data.campo3 == 'administrador')
           this.router.navigate(['/admin']);
         if(decodeToken.data.campo3 == 'profesor')
-          this.router.navigate(['/item3']);
+          this.router.navigate(['/item3/' + decodeToken.data.id]);
         if(decodeToken.data.campo3 == 'alumno'){
           this.router.navigate(['/item2/'+ decodeToken.data.id]);
         }
