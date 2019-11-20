@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   entidadLogin: Entidad;
   arrayCampo3: Array<string>;
   jwtDecoder = new JwtHelperService();
+  selectedFile = null; 
+  mensajeResitro: string; 
 
   constructor(private entidad1Service: Entidad1Service, private router: Router) { 
     this.entidadAlta = new Entidad();
@@ -50,17 +52,36 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onFileSelected(event){
+    this.selectedFile = event.target.files[0];
+  }
+
   altaEntidad(){
     this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe(respuesta => {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: respuesta.Mensaje,
-        showConfirmButton: false,
-        timer: 1500
-        });
+      this.mensajeResitro = respuesta.Mensaje;
     });
+
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+
+    this.entidad1Service.GuardarFoto(fd).subscribe(respuesta => {
+        if(respuesta.Estado == 'Error'){
+          this.mensajeResitro = this.mensajeResitro + '. ' + respuesta.Mensaje;
+        }
+        this.alertaRegistro(this.mensajeResitro);
+    }); 
+    
     this.entidadAlta = new Entidad();
+  }
+
+  alertaRegistro(mensaje: string) {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: mensaje,
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 
   alertaUsuarioInvalido(mensaje: string) {

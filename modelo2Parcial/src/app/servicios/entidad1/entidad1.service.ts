@@ -22,6 +22,10 @@ export class Entidad1Service {
     return this.HttpService.httpPostLoginRegistro('entidad/', entidad);
   }
 
+  GuardarFoto(foto: FormData) {
+    return this.HttpService.httpPostGuardarFoto('entidad/foto', foto);
+  }
+
   ObtenerEntidades(param: string) {
     return this.HttpService.httpGet0('entidades/' + param)
   }
