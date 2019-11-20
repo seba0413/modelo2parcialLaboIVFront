@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
         timer: 1500
         });
     });
+    this.entidadAlta = new Entidad();
   }
 
   alertaUsuarioInvalido(mensaje: string) {
