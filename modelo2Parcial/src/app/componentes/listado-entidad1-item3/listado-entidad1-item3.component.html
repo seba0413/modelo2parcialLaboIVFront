@@ -1,1 +1,29 @@
-<p>listado-entidad1-item3 works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <label for="tipos">Materias dictadas</label>
+            <select id="campo4" class="form-control col-lg-10" [(ngModel)]="idEntidad2Seleccionada" (change)="buscarItems2()">
+                <option [value]="item.id" *ngFor="let item of ListadoEntidades2">{{item.campo1}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="listadoItem2.length > 0"> 
+    <table class="table" style="margin-top: 2%;">
+        <thead>
+            <tr>
+                <th scope="col">Mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listadoItem2">
+                <td>{{item.campo1}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="margin-top: 20%;">
+
+</div>

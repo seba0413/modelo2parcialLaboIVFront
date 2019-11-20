@@ -15,4 +15,8 @@ export class Entidad12Service {
   ListarEntidad1_2(idEnt1){
     return this.httpService.httpGet0('entidad1_2/' + idEnt1);
   }
+
+  ObtenerItems2_Item3(IdEntidad2){
+    return this.httpService.httpGet0('/item2/item3/' + IdEntidad2);
+  }
 }

@@ -20,8 +20,8 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>Facultad</b><br>Profesor</h3>
   </div>
   <div class="w3-bar-block">
-    <a href="/item3/{{idItem3}}#materiasDictadas" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Materias a cargo</a> 
-    <a href="/item3/{{idItem3}}#alumnosInscriptos" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alumnos inscriptos</a> 
+    <a href="/item3/{{idItem3}}#materiasDictadas" class="w3-bar-item w3-button w3-hover-white">Materias a cargo</a> 
+    <a href="/item3/{{idItem3}}#alumnosInscriptos" class="w3-bar-item w3-button w3-hover-white">Alumnos inscriptos</a> 
   </div>
 </nav>
 
@@ -46,7 +46,7 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-red"><b>Alumnos inscriptos</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <app-listado-entidad1-item3></app-listado-entidad1-item3>
+    <app-listado-entidad1-item3 [ListadoEntidades2] = "listadoEntidad2_Item3"></app-listado-entidad1-item3>
    
   </div>
 </div>

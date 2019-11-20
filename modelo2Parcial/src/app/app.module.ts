@@ -36,7 +36,7 @@ import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indica
     ListadoEntidad2Item3Component,
     ListadoEntidad1Item3Component,
     ResaltarComponent,
-    IndicarPropiedadComponent
+    IndicarPropiedadComponent,
   ],
   imports: [
     BrowserModule,

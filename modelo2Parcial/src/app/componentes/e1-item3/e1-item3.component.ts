@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entidad } from '../../clases/entidad';
+import { Entidad2 } from '../../clases/entidad2';
 import { Entidad1Service } from 'src/app/servicios/entidad1/entidad1.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class E1Item3Component implements OnInit {
 
   idItem3: number; 
   entidad1Item3: Entidad; 
-  listadoEntidad2_Item3: Array<any>;
+  listadoEntidad2_Item3: Array<Entidad2>;
 
   constructor(private rutaActiva: ActivatedRoute, private entidad1Service: Entidad1Service) {}
 
