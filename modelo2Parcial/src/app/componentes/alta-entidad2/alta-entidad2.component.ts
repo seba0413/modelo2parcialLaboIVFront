@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Entidad2 } from '../../clases/entidad2';
 import { Entidad1Service } from 'src/app/servicios/entidad1/entidad1.service';
 import { Entidad2Service } from 'src/app/servicios/entidad2/entidad2.service';
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class AltaEntidad2Component implements OnInit {
 
+  @Output() nuevaMateria: EventEmitter<any> = new EventEmitter<any>();
   entidad2: Entidad2;
   arrayEntidad1Campo1: Array<string>;
 
@@ -36,7 +37,8 @@ export class AltaEntidad2Component implements OnInit {
         timer: 1500
         });
         this.entidad2 = new Entidad2();
-      })
+        this.nuevaMateria.emit(true);
+      })    
     }
   }    
 

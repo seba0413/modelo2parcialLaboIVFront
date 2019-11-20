@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Entidad2Service } from 'src/app/servicios/entidad2/entidad2.service';
 import { Entidad2 } from '../../clases/entidad2';
 
@@ -9,14 +9,12 @@ import { Entidad2 } from '../../clases/entidad2';
 })
 export class ListadoEntidad2Component implements OnInit {
 
-  listadoEntidades2: Array<Entidad2>;
+  @Input() listadoEntidades2: Array<Entidad2>;
 
-  constructor(private entidad2Service: Entidad2Service) { }
+  constructor() { }
 
   ngOnInit() {
-    this.entidad2Service.ObtenerEntidades2().subscribe(respuesta=>{
-      this.listadoEntidades2 = respuesta; 
-    })
+
   } 
 
 }

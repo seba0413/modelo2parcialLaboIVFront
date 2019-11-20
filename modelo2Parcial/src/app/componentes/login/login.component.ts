@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.arrayCampo3.push('administrador');
   }
 
-  loginEntidad(){
+  loginEntidad(){;
     this.entidad1Service.LoginEntidad(this.entidadLogin).subscribe(respuesta => {
       if(respuesta.Estado == "Error")
       {
@@ -49,7 +49,15 @@ export class LoginComponent implements OnInit {
   }
 
   altaEntidad(){
-    this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe();
+    this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe(respuesta => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: respuesta.Mensaje,
+        showConfirmButton: false,
+        timer: 1500
+        });
+    });
   }
 
   alertaUsuarioInvalido(mensaje: string) {

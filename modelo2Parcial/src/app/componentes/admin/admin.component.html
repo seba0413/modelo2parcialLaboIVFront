@@ -38,7 +38,7 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-red"><b>Alta de Materia</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <app-alta-entidad2></app-alta-entidad2>
+    <app-alta-entidad2 (nuevaMateria) = "recibeNuevaMateria($event)"></app-alta-entidad2>
     
   </div>
 
@@ -47,7 +47,7 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-red"><b>Listado de materias</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <app-listado-entidad2></app-listado-entidad2>
+    <app-listado-entidad2 [listadoEntidades2] = "listadoEnt2"></app-listado-entidad2>
    
   </div>
   

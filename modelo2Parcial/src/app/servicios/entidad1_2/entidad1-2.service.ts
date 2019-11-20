@@ -11,4 +11,8 @@ export class Entidad12Service {
   AltaEntidad1_2(idEnt1, idEnt2){
     return this.httpService.httpPost0('entidad1_2/alta/', {idEntidad1: idEnt1, idEntidad2: idEnt2});
   }
+
+  ListarEntidad1_2(idEnt1){
+    return this.httpService.httpGet0('entidad1_2/' + idEnt1);
+  }
 }

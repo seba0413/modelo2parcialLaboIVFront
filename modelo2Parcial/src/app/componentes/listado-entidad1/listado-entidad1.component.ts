@@ -13,7 +13,7 @@ export class ListadoEntidad1Component implements OnInit {
 
   constructor() { }
 
-  filtrarEntidades(campo3){debugger
+  filtrarEntidades(campo3){
     this.filtroSeleccionado.emit(campo3);
   }
 

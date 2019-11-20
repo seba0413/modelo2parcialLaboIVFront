@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Entidad12Service } from 'src/app/servicios/entidad1_2/entidad1-2.service';
 
 @Component({
   selector: 'app-listado-entidad1-entidad2',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoEntidad1Entidad2Component implements OnInit {
 
-  constructor() { }
+  @Input() idEntidad1;
+  @Input() listadoEntidades2DeEntidad1: Array<any>;
+
+  constructor(private entidad1_2Service: Entidad12Service) { }
 
   ngOnInit() {
   }

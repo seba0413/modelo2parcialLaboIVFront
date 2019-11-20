@@ -9,20 +9,19 @@ import { environment } from '../../../environments/environment';
 })
 export class HttpService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': localStorage.getItem('Token')
-    })
-  };
-
   private url = environment.apiUrl;
 
   constructor(private http: HttpClient) {   }
 
   public httpPost0( metodo: string, objeto: any): Observable<any> {
-    return this.http.post(this.url + metodo, JSON.stringify(objeto), this.httpOptions)
-    .pipe(respuesta => respuesta)
+    var token = localStorage.getItem('Token');
+    return this.http.post(this.url + metodo, JSON.stringify(objeto), {
+                                                                        headers: new HttpHeaders({
+                                                                          'Content-Type':  'application/json',
+                                                                          'Authorization': token
+                                                                        })
+                                                                      }
+    ).pipe(respuesta => respuesta)    
   }
 
   public httpPostLoginRegistro( metodo: string, objeto: any): Observable<any> {
