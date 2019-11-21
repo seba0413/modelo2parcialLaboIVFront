@@ -51,27 +51,42 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
+  
+  validarEmail(valor) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor))
+     return true;
+    else 
+     this.alertaUsuarioInvalido('Formato de mail incorrecto');
+  }
+W
   onFileSelected(event){
     this.selectedFile = event.target.files[0];
   }
 
   altaEntidad(){
-    this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe(respuesta => {
-      this.mensajeResitro = respuesta.Mensaje;
-    });
+    if(this.validarEmail(this.entidadAlta.campo1)){
 
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
+      this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe(respuesta => {
+        this.mensajeResitro = respuesta.Mensaje;
+      });
+  
+      if(this.selectedFile !=  null)
+      {
+        const fd = new FormData();
+        fd.append('image', this.selectedFile, this.selectedFile.name);
 
-    this.entidad1Service.GuardarFoto(fd).subscribe(respuesta => {
-        if(respuesta.Estado == 'Error'){
-          this.mensajeResitro = this.mensajeResitro + '. ' + respuesta.Mensaje;
-        }
+        this.entidad1Service.GuardarFoto(fd).subscribe(respuesta => {
+            if(respuesta.Estado == 'Error'){
+              this.mensajeResitro = this.mensajeResitro + '. ' + respuesta.Mensaje;
+            }
+            this.alertaRegistro(this.mensajeResitro);
+        }); 
+      }
+      else
         this.alertaRegistro(this.mensajeResitro);
-    }); 
-    
-    this.entidadAlta = new Entidad();
+      
+      this.entidadAlta = new Entidad();
+    }
   }
 
   alertaRegistro(mensaje: string) {
