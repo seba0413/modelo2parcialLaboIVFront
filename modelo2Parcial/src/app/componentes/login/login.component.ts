@@ -51,14 +51,14 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  
+
   validarEmail(valor) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor))
      return true;
     else 
      this.alertaUsuarioInvalido('Formato de mail incorrecto');
   }
-W
+  
   onFileSelected(event){
     this.selectedFile = event.target.files[0];
   }
