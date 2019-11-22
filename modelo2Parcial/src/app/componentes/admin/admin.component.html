@@ -22,6 +22,7 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="/admin/{{idAdmin}}#altaMateria" class="w3-bar-item w3-button w3-hover-white">Alta de materia</a> 
     <a href="/admin/{{idAdmin}}#listadoMaterias" class="w3-bar-item w3-button w3-hover-white">Ver listado de materias</a> 
+    <a href="/admin/{{idAdmin}}#detalleMaterias" class="w3-bar-item w3-button w3-hover-white">Ver detalle de materias</a> 
     <a href="/admin/{{idAdmin}}#listadoUsuarios" class="w3-bar-item w3-button w3-hover-white">Ver listado de usuarios</a> 
   </div>
   <div class="w3-container" style="margin-top: 80%;"> 
@@ -53,6 +54,17 @@ body {font-size:16px;}
     <app-listado-entidad2 [listadoEntidades2] = "listadoEnt2"></app-listado-entidad2>
    
   </div>
+
+    <!-- Detalle de materias -->
+  <div class="w3-container" id="detalleMaterias" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Detalle de materias</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <app-detalle-materia [listadoMaterias] = "listadoEnt2"></app-detalle-materia>
+   
+  </div>
+
+  
   
   <!-- Listado de usuarios -->
   <div class="w3-container" id="listadoUsuarios" style="margin-top:75px">

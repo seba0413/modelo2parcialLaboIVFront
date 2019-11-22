@@ -12,6 +12,7 @@ export class ResaltarComponent implements OnInit {
 
   constructor(private el: ElementRef) { }
 
+  //Valida el cupo/campo3 del item pasado por input
   resaltarItem(){
     if(this.item.campo3 > 20) {
       this.el.nativeElement.style.backgroundColor = 'cyan';
@@ -21,12 +22,14 @@ export class ResaltarComponent implements OnInit {
     }
   }
 
+  //Inhabilita el boton inscripcion si el cupo/campo3 es cero
   inhabilitarBoton(){
     if(this.item.campo3 == 0){
       document.getElementById('btnInscripcion').setAttribute('disabled', 'disabled');
     }
   }
 
+  //Le avisa al padre que se clickeo el boton inscripcion y le pasa el id de la entidad2/materia
   altaEntidad1_2(idEntidad2){
     this.inscripcion.emit(idEntidad2);
   }

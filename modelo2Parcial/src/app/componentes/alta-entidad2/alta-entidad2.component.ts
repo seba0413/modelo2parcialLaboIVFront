@@ -14,6 +14,7 @@ export class AltaEntidad2Component implements OnInit {
   @Output() nuevaMateria: EventEmitter<any> = new EventEmitter<any>();
   entidad2: Entidad2;
   arrayEntidad1Campo1: Array<string>;
+  selectedFile = null; 
 
   constructor(private entidadService: Entidad1Service, private entidad2Service: Entidad2Service) { 
     this.entidad2 = new Entidad2(); 
@@ -36,11 +37,20 @@ export class AltaEntidad2Component implements OnInit {
         showConfirmButton: false,
         timer: 1500
         });
+
+        const fd = new FormData();
+        fd.append('image', this.selectedFile, this.selectedFile.name);
+
+        this.entidad2Service.GuardarFotoMateria(fd).subscribe();
         this.entidad2 = new Entidad2();
         this.nuevaMateria.emit(true);
-      })    
+      })  
     }
   }    
+
+  onFileSelected(event){
+    this.selectedFile = event.target.files[0];
+  }
 
   alertaCampoInvalido(mensaje: string){
     Swal.fire({ 
@@ -54,6 +64,7 @@ export class AltaEntidad2Component implements OnInit {
   }
 
   ngOnInit() {
+    //Obtiene los profesores dados de alta en la base que pueden ser seleccionados en el alta de materia
     this.entidadService.ObtenerEntidades('profesor/').subscribe(respuesta => {
       this.arrayEntidad1Campo1 = respuesta
     });

@@ -11,6 +11,10 @@ export class ListadoEntidad2Item3Component implements OnInit {
 
   constructor() { }
 
+  mostrarDetalles(){
+    
+  }
+
   ngOnInit() {
   }
 

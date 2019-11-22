@@ -9,6 +9,8 @@ import { Entidad2 } from '../../clases/entidad2';
 })
 export class ListadoEntidad2Component implements OnInit {
 
+  //Este componente solo muestra las materias/entidad2 dadas de alta, las cuales recibe por input desde el componente admin
+
   @Input() listadoEntidades2: Array<Entidad2>;
 
   constructor() { }

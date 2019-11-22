@@ -13,6 +13,7 @@ export class ListadoEntidad1Component implements OnInit {
 
   constructor() { }
 
+  //Recibe el filtro que le llega desde los botones de la vista y se los pasa al padre por output, quien refresca la lista y se la devuelve por input
   filtrarEntidades(campo3){
     this.filtroSeleccionado.emit(campo3);
   }

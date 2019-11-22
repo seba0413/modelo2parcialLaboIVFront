@@ -17,6 +17,10 @@
             <select id="campo4" class="form-control col-lg-10" [(ngModel)]="entidad2.campo4" name="campo4">
                 <option [value]="item.campo1" *ngFor="let item of arrayEntidad1Campo1">{{item.campo1}}</option>
             </select>
+        <div class="col-6">
+            <label for="foto">Cargar Foto</label>
+            <input type="file" name="" id="" (change)="onFileSelected($event)">
+        </div>
         </div>
         <div class="form-group col-4" style="margin-top: 2%;">
             <button type="button" class="btn btn-primary" (click) = "altaEntidad2()">Dar de alta</button>

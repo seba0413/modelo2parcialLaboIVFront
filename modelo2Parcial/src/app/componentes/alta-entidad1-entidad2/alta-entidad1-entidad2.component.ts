@@ -18,6 +18,7 @@ export class AltaEntidad1Entidad2Component implements OnInit {
   constructor(private entidad2Service: Entidad2Service, private entidad1_2Service: Entidad12Service) { }
 
   altaEntidad1_2(idEntidad2){
+    //Guarda el id de cada entidad en la tabla de relacion entre entidad1item2/alumno y entidad2/materia
     return this.entidad1_2Service.AltaEntidad1_2(this.idEntidad1, idEntidad2).subscribe(respuesta => {
       if(respuesta.Estado == "Ok"){
         Swal.fire({

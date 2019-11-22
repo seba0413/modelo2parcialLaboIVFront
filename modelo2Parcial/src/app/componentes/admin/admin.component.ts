@@ -21,12 +21,15 @@ export class AdminComponent implements OnInit {
   constructor(private entidadService: Entidad1Service, private entidad2Service: Entidad2Service, private rutaActiva: ActivatedRoute,
     private router: Router) {} 
 
+  //Recibe el filtro seleccionado en el componente hijo listado-entidad1 y actualiza la lista de entidades que le pasa por input al hijo  
   recibeFiltroEntidades(campo3){
     this.entidadService.ObtenerEntidades(campo3 + '/').subscribe(respuesta=>{
       this.listaEntidades = respuesta;
     })
   }
 
+  //Recibe la notificacion de que se dio de alta una materia/entidad2 en el compoenente hijo alta-entidad2 y obtiene la lista actualizada que es 
+  //pasada por input al componente hijo 
   recibeNuevaMateria(event){
     if(event){
       this.entidad2Service.ObtenerEntidades2().subscribe(respuesta=>{
@@ -53,6 +56,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Obtiene todos los datos que necesita el perfil y se los pasa a los componentes hijos. 
     this.idAdmin = this.rutaActiva.snapshot.params.idAdmin;
     this.entidadService.ObtenerEntidad(this.idAdmin).subscribe(respuesta => { this.admin = respuesta });
     this.entidadService.ObtenerEntidades('todos/').subscribe(respuesta=>{

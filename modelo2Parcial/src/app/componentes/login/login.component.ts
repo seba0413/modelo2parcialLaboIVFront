@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
   }
 
   altaEntidad(){
-    if(this.validarEmail(this.entidadAlta.campo1)){
+    //if(this.validarEmail(this.entidadAlta.campo1)){
 
       this.entidad1Service.AltaEntidad(this.entidadAlta).subscribe(respuesta => {
         this.mensajeResitro = respuesta.Mensaje;
@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
         this.alertaRegistro(this.mensajeResitro);
       
       this.entidadAlta = new Entidad();
-    }
+   // }
   }
 
   alertaRegistro(mensaje: string) {

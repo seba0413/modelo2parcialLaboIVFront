@@ -16,4 +16,12 @@ export class Entidad2Service {
   ObtenerEntidades2(){
     return this.HttpService.httpGet0('entidades2/');
   }
+
+  GuardarFotoMateria(foto: FormData){
+    return this.HttpService.httpPostGuardarFoto('entidad2/foto', foto);
+  }
+
+  ObtenerAlumnosInscriptosEnMateria(idMateria){
+    return this.HttpService.httpGet0('/alumnos/materia/' + idMateria);
+  }
 }

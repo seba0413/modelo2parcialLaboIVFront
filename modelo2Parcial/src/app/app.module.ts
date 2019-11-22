@@ -22,6 +22,8 @@ import { ResaltarComponent } from './directivas/resaltar/resaltar.component';
 import { IndicarPropiedadComponent } from './directivas/indicar-propiedad/indicar-propiedad.component';
 import { MailComponent } from './componentes/mail/mail.component';
 import { SortbyPipe } from './pipes/sortby.pipe';
+import { NotaPipe } from './pipes/nota.pipe';
+import { DetalleMateriaComponent } from './componentes/detalle-materia/detalle-materia.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { SortbyPipe } from './pipes/sortby.pipe';
     IndicarPropiedadComponent,
     MailComponent,
     SortbyPipe,
+    NotaPipe,
+    DetalleMateriaComponent,
   ],
   imports: [
     BrowserModule,
